@@ -5,6 +5,5 @@ import pymysql
 pymysql.install_as_MySQLdb
 
 app = Flask(__name__)
-app.config.from_object('config.Configuration')
+app.config.from_object(Configuration)
 db = SQLAlchemy(app)
-

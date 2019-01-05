@@ -1,6 +1,6 @@
 from app import app
-import view, modules, config
-
+import view
 
 if __name__ == "__main__":
     app.run()
+
