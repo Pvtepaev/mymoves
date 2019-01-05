@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <p></p>
+  <p></p>
+  <h4>Edit User Details</h4>
+  <form action="" method="post" name="edit">
+  <h5>Username: {{form.Name(size = 24)}} </h5>
+
+  <h5>Personal details:</h5>
+   <div class="row">
+      <div class="col">
+        <h6>Age: {{form.Age(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>Weight: {{form.Weight(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR max: {{form.Hrmax(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR min: {{form.Hrmin(size = 3)}}</h6> 
+      </div>
+ 
+   </div>
+
+  <h5>Thresholds:</h5>
+   <div class="row">
+      <div class="col">
+        <h6>HR Threshold: {{form.HRThreshold(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Threshold: {{form.PaceThreshold}}</h6>
+      </div>
+   </div>
+
+  <h5>HeartRate zone limits:</h5>
+
+   <div class="row">
+      <div class="col">
+        <h6>HR Limit 1: {{form.HRLim1(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 2: {{form.HRLim2(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 3: {{form.HRLim3(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 4: {{form.HRLim4(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 5: {{form.HRLim5(size = 3)}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 6: {{form.HRLim6(size = 3)}}</h6>
+      </div>
+   </div>
+
+  <h5>Pace zone limits:</h5>
+
+   <div class="row">
+      <div class="col">
+        <h6>Pace Limit 1: {{form.PaceLim1}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 2: {{form.PaceLim2}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 3: {{form.PaceLim3}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 4: {{form.PaceLim4}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 5: {{form.PaceLim5}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 6: {{form.PaceLim6}}</h6>
+      </div>
+   </div>
+   <input type="submit" value="Save Changes">
+   </form>
+
+{% endblock %}

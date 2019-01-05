@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <h1>This is test upload page </h1>
+
+  <form  action="" method="POST" class="control-label" name="upload" enctype="multipart/form-data">
+    <b> Please choose file (.tcx):</b><br>
+            {{ form.hidden_tag() }}
+            {{form.fileName(size=(80))}}<br>
+        <input type="submit">
+  </form>
+
+
+
+{% endblock %}

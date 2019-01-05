@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+
+    <div class="page-header">
+        <h1>Upload move<small></small></h1>
+    </div>
+
+
+      <form  action="" method="POST" class="control-label" name="upload" enctype="multipart/form-data">
+          <b> Please choose file (.tcx):</b><br>
+            {{ form.hidden_tag() }}
+            {{form.fileName(size=(80))}}<br>
+          <input type="submit">
+      </form>
+    
+
+  <div class="page-header">
+        <h1>Recent moves<small></small></h1>
+    </div>
+	  <div>
+    <table class="table">
+        <thead>
+             <tr>
+                 <th scope="col">#</th>
+                 <th scope="col">Activity</th>
+                 <th scope="col">Date</th>
+                 <th scope="col">Duration</th>
+                 <th scope="col">Distance</th>
+                 <th scope="col">hrTSS</th>
+                 <th scope="col">pTSS</th>
+                 <th scope="col">AverageSpeed</th>
+                 <th scope="col">AverageHR</th>
+             </tr>
+        </thead>
+        <tbody>
+        {% for move in moves%}
+             <tr>
+               <th scope="row">#</th>
+               <td>{{move.Activity}}</td>
+               <td>{{move.Date}}</td>
+               <td>{{move.Duration}}</td>
+               <td>{{move.Distance}}</td>
+               <td>{{move.hrTss}}</td>
+               <td>{{move.pTSS}}</td>
+               <td>{{move.AverageSpeed}}</td>
+               <td>{{move.AverageHR}}</td>
+ 
+             </tr>
+        </tbody>
+      {% endfor %}
+    </table>
+    </div>
+
+ 
+
+
+{% endblock %}

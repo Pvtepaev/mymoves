@@ -1,0 +1,86 @@
+{% extends "base.html" %}
+
+
+
+{% block content %}
+  <p></p>
+  <p></p>
+  <h4>User Details</h4>
+
+  <h5>Username: {{userdetail.Name}} </h5>
+
+  <h5>Personal details:</h5>
+   <div class="row">
+      <div class="col">
+        <h6>Age: {{userdetail.Age}}</h6>
+      </div>
+      <div class="col">
+        <h6>Weight: {{userdetail.Weight}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR max: {{userdetail.Hrmax}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR min: {{userdetail.Hrmin}}</h6>
+      </div>
+ 
+   </div>
+
+  <h5>Thresholds:</h5>
+   <div class="row">
+      <div class="col">
+        <h6>HR Threshold: {{userdetail.HRThreshold}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Threshold: {{userdetail.PaceThreshold}}</h6>
+      </div>
+   </div>
+
+  <h5>HeartRate zone limits:</h5>
+
+   <div class="row">
+      <div class="col">
+        <h6>HR Limit 1: {{userdetail.HRLim1}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 2: {{userdetail.HRLim2}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 3: {{userdetail.HRLim3}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 4: {{userdetail.HRLim4}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 5: {{userdetail.HRLim5}}</h6>
+      </div>
+      <div class="col">
+        <h6>HR Limit 6: {{userdetail.HRLim6}}</h6>
+      </div>
+   </div>
+
+  <h5>Pace zone limits:</h5>
+
+   <div class="row">
+      <div class="col">
+        <h6>Pace Limit 1: {{userdetail.PaceLim1}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 2: {{userdetail.PaceLim2}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 3: {{userdetail.PaceLim3}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 4: {{userdetail.PaceLim4}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 5: {{userdetail.PaceLim5}}</h6>
+      </div>
+      <div class="col">
+        <h6>Pace Limit 6: {{userdetail.PaceLim6}}</h6>
+      </div>
+   </div>
+
+
+{% endblock %}
