@@ -1,9 +1,33 @@
 {% extends "base.html" %}
 
+{% block title %}
+
+	Training plan
+
+{% endblock %}
+
 
 
 {% block content %}
-  <h1>Training plan to be showed here</h1>
+  <h2>Trainig plan for 2019</h2>
+  <br>
+  			<div class="row" style="width: 40%">
+  				<div class="col" align="center"># of Week</div> 
+  				<div class="col" align="center">Starting date</div> 
+  				<div class="col" align="center">Planned TSS</div>
+  			</div>
+  			<div class="row" style="width: 40%">
+  				<div class="col" align="center"> </div> 
+  				<div class="col" align="center"> </div> 
+  				<div class="col" align="center"> </div>
+  			</div>
+  		{% for m in n  %}
+  			<div class="row" style="width: 40%">
+  				<div class="col" align="center"> {{m.Week}} </div>
+  				<div class="col" align="center"> {{m.Date}} </div> 
+  				<div class="col" align="center"> {{m.TSSplan}}</div>
+  			</div>
 
+  		{%    endfor %}
 
 {% endblock %}

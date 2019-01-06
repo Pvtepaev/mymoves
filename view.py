@@ -5,7 +5,7 @@ from flask import render_template, request, redirect, url_for
 #from werkzeug.utils import secure_filename
 #import os
 #from tcx_parser import parsetcx
-#from modules import Moves, UserDetails
+from modules import Moves, UserDetails, Plan
 #import pymysql
 #pymysql.install_as_MySQLdb
 
@@ -24,17 +24,17 @@ from flask import render_template, request, redirect, url_for
 #    moves =  Moves.query.order_by('Date desc', 'Time desc').limit(10).all()
 #    return render_template('index.html', moves = moves, form = form, title = 'Mymoves', Header = 'Mymoves', Small = 'upload .tcx file')
 
-
 @app.route('/plan')
 def plan():
-    return render_template('plan.html', title = 'training plan')
+	value = Plan.query.all()
+	return render_template( 'plan.html', n = value)
 
 
-#@app.route('/User')
-#def User():
-#    userdetail = UserDetails.query.get(1)
-#    return render_template('User.html', title = 'User Details', userdetail = userdetail)
-#
+@app.route('/user')
+def user():
+	userdetail = UserDetails.query.first()
+	return render_template('User.html', title = 'User Details', userdetail = userdetail)
+
 #@app.route('/Edit', methods=['POST', 'GET'])
 #def Edit():
 #    form = UserEdit()
