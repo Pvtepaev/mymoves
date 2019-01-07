@@ -1,0 +1,40 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+	Create training plan
+
+{% endblock %}
+
+
+
+{% block content %}
+  <h2>Trainig plan for 2019</h2>
+  <br>
+  <b>Input Start date:</b>	<input type="date" class="form-control" id="start_date" style="width: 30%">
+  <br>
+  <b>Input planned TSS:</b> 
+        <table class="table table-striped" style="width: 30%">
+          <thead>
+            <tr>
+              <th scope="col" align="center"># of Week</th>
+              <th scope="col" align="center">Planned TSS</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+        {% for m in range(52)  %}     
+            <tr>
+              <th scope="row" align="center">{{ m + 1 }}</th>
+              <td align="center"><input type="number" class="form-control input-sm" id="mTSSplan" min="1" max="500" ></td>
+            </tr>
+        {%    endfor %}    
+        
+          </tbody>
+        </table>
+
+
+
+  		
+
+{% endblock %}
