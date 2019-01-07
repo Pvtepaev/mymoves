@@ -2,6 +2,8 @@ from app import db
 from sqlalchemy import Column, Integer, Float, String, Time
 from datetime import datetime
 
+
+
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
@@ -11,8 +13,13 @@ class Plan(db.Model):
     Date = db.Column(db.Date)
     Week = db.Column(db.Integer)
     TSSplan = db.Column(db.Integer)
+    TSScompl = db.Column(db.Integer)
     def __init__(self, *args, **kwargs):
         super(Plan, self).__init__(*args, **kwargs)
+
+    def __repr__(self):
+        return '<Plan ID: {}, Date: {}, Week: {}, TSSplan: {}, TSScompl: {}>'.format(self.ID, self.Date, self.Week, self.TSSplan, self.TSScompl)
+
 
 class UserDetails(db.Model):
     __tablename__ = 'UserDetails'

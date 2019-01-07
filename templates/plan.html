@@ -11,23 +11,32 @@
 {% block content %}
   <h2>Trainig plan for 2019</h2>
   <br>
-  			<div class="row" style="width: 40%">
-  				<div class="col" align="center"># of Week</div> 
-  				<div class="col" align="center">Starting date</div> 
-  				<div class="col" align="center">Planned TSS</div>
-  			</div>
-  			<div class="row" style="width: 40%">
-  				<div class="col" align="center"> </div> 
-  				<div class="col" align="center"> </div> 
-  				<div class="col" align="center"> </div>
-  			</div>
-  		{% for m in n  %}
-  			<div class="row" style="width: 40%">
-  				<div class="col" align="center"> {{m.Week}} </div>
-  				<div class="col" align="center"> {{m.Date}} </div> 
-  				<div class="col" align="center"> {{m.TSSplan}}</div>
-  			</div>
+  		
+        <table class="table table-striped" style="width: 50%">
+          <thead>
+            <tr>
+              <th scope="col" align="center"># of Week</th>
+              <th scope="col">Starting date</th>
+              <th scope="col">Planned TSS</th>
+              <th scope="col">Completed TSS</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+        {% for m in n  %}     
+            <tr>
+              <th scope="row" align="center">{{ m.Week  }}</th>
+              <td align="center">{{  m.Date  }}</td>
+              <td align="center">{{ m.TSSplan  }}</td>
+              <td align="center">{{ m.TSScompl  }}</td>
+            </tr>
+        {%    endfor %}    
+       
+          </tbody>
+        </table>
+        <a href="{{ url_for('create_plan') }}"><button type="button" class="btn btn-primary">Create new training plan</button></a>
 
-  		{%    endfor %}
+
+  		
 
 {% endblock %}

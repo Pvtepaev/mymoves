@@ -29,6 +29,9 @@ def plan():
 	value = Plan.query.all()
 	return render_template( 'plan.html', n = value)
 
+@app.route('/create_plan')
+def create_plan():
+	return render_template( 'create_plan.html')
 
 @app.route('/user')
 def user():
