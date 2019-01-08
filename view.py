@@ -1,7 +1,8 @@
 from app import app
 from app import db
 from flask import render_template, request, redirect, url_for
-#from forms import Uploadform, UserEdit
+from forms import UserEdit, CreatePlan
+import datetime
 #from werkzeug.utils import secure_filename
 #import os
 #from tcx_parser import parsetcx
@@ -24,15 +25,46 @@ from modules import Moves, UserDetails, Plan
 #    moves =  Moves.query.order_by('Date desc', 'Time desc').limit(10).all()
 #    return render_template('index.html', moves = moves, form = form, title = 'Mymoves', Header = 'Mymoves', Small = 'upload .tcx file')
 
+#http://localhost/plan
 @app.route('/plan')
 def plan():
 	value = Plan.query.all()
 	return render_template( 'plan.html', n = value)
 
-@app.route('/create_plan')
-def create_plan():
-	return render_template( 'create_plan.html')
 
+
+#http://localhost/create_plan
+@app.route('/create_plan', methods=['POST', 'GET'])
+def create_plan():
+	if request.method == 'POST':
+		startdate = request.form['startdate']
+		truestartdate = datetime.datetime.strptime(startdate, '%Y-%m-%d').date()
+		tssplanweek = []
+		for x in range(52):
+			tssplanweek.append(request.form['tssplanweek' + str(x)])
+
+		try:
+
+			db.session.query(Plan).delete()
+			db.session.commit()
+			for x in range(52):
+				plan = Plan(Date=(truestartdate + datetime.timedelta(days=7)*x), Week= x + 1, TSSplan= tssplanweek[x], TSScompl=0)
+				db.session.add(plan)			
+				db.session.commit()
+		
+		except:
+			print('Can not do this')
+		return redirect(url_for('plan'))
+	form = CreatePlan()
+
+	return render_template( 'create_plan.html', form=form)
+
+
+
+
+
+
+#http://localhost/user
 @app.route('/user')
 def user():
 	userdetail = UserDetails.query.first()
