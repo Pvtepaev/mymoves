@@ -30,48 +30,52 @@ from modules import Moves, UserDetails, Plan
 #http://localhost/sample_chart
 @app.route('/sample_chart')
 def sample_chart():
-    legend = 'Weekly TSS plan'
-    labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
-    values = [160, 190, 210, 160, 190, 210, 230, 160, 210]
-    return render_template('sample_chart.html', values = values, labels = label, legend = legend)
+    legend = 'Planned Weekly TSS'
+#    labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+#    values = [160, 190, 210, 160, 190, 210, 230, 160, 210]
+    
+    values = Plan.query.all()
+
+    return render_template('sample_chart.html', values = values, legend = legend)
 
 @app.route('/')
 #http://localhost/plan
 @app.route('/plan')
 def plan():
-	value = Plan.query.all()
+    value = Plan.query.all()
 
-	date_today = datetime.date.today()
+    legend = 'Weekly TSS plan'
+    date_today = datetime.date.today()
 
-	return render_template( 'plan.html', n = value, d = date_today)
+    return render_template( 'plan.html', n = value, d = date_today, legend = legend)
 
 
 
 #http://localhost/create_plan
 @app.route('/create_plan', methods=['POST', 'GET'])
 def create_plan():
-	if request.method == 'POST':
-		startdate = request.form['startdate']
-		truestartdate = datetime.datetime.strptime(startdate, '%Y-%m-%d').date()
-		tssplanweek = []
-		for x in range(52):
-			tssplanweek.append(request.form['tssplanweek' + str(x)])
+    if request.method == 'POST':
+        startdate = request.form['startdate']
+        truestartdate = datetime.datetime.strptime(startdate, '%Y-%m-%d').date()
+        tssplanweek = []
+        for x in range(52):
+            tssplanweek.append(request.form['tssplanweek' + str(x)])
 
-		try:
+        try:
 
-			db.session.query(Plan).delete()
-			db.session.commit()
-			for x in range(52):
-				plan = Plan(Date=(truestartdate + datetime.timedelta(days=7)*x), Week= x + 1, TSSplan= tssplanweek[x], TSScompl=0)
-				db.session.add(plan)
-				db.session.commit()
+            db.session.query(Plan).delete()
+            db.session.commit()
+            for x in range(52):
+                plan = Plan(Date=(truestartdate + datetime.timedelta(days=7)*x), Week= x + 1, TSSplan= tssplanweek[x], TSScompl=0)
+                db.session.add(plan)
+                db.session.commit()
 
-		except:
-			print('Can not do this')
-		return redirect(url_for('plan'))
-	form = CreatePlan()
+        except:
+            print('Can not do this')
+        return redirect(url_for('plan'))
+    form = CreatePlan()
 
-	return render_template( 'create_plan.html', form=form)
+    return render_template( 'create_plan.html', form=form)
 
 
 
@@ -81,8 +85,8 @@ def create_plan():
 #http://localhost/user
 @app.route('/user')
 def user():
-	userdetail = UserDetails.query.first()
-	return render_template('User.html', title = 'User Details', userdetail = userdetail)
+    userdetail = UserDetails.query.first()
+    return render_template('User.html', title = 'User Details', userdetail = userdetail)
 
 #@app.route('/Edit', methods=['POST', 'GET'])
 #def Edit():
