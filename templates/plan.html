@@ -2,14 +2,14 @@
 
 {% block title %}
 
-	Training plan
+Training plan 2019
 
 {% endblock %}
 
 
 
 {% block content %}
-  <h2>Trainig plan for 2019</h2>
+  <h2>Training plan 2019</h2>
   <br>
   		
         <table class="table table-striped" style="width: 50%">
@@ -23,14 +23,20 @@
           </thead>
           <tbody>
         
-        {% for m in n  %}     
-            <tr>
+        {% for m in n: %}   
+                {% if 0 < (d - m.Date).days < 7: %}
+                   <tr class="table-primary">
+                {% else: %}
+                   <tr>
+                {% endif %}
+
+            
               <th scope="row" align="center">{{ m.Week  }}</th>
               <td align="center">{{  m.Date  }}</td>
               <td align="center">{{ m.TSSplan  }}</td>
               <td align="center">{{ m.TSScompl  }}</td>
             </tr>
-        {%    endfor %}    
+        {% endfor %}    
        
           </tbody>
         </table>

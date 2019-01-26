@@ -25,11 +25,25 @@ from modules import Moves, UserDetails, Plan
 #    moves =  Moves.query.order_by('Date desc', 'Time desc').limit(10).all()
 #    return render_template('index.html', moves = moves, form = form, title = 'Mymoves', Header = 'Mymoves', Small = 'upload .tcx file')
 
+
+# This is a sample chart with sample.js
+#http://localhost/sample_chart
+@app.route('/sample_chart')
+def sample_chart():
+    legend = 'Weekly TSS plan'
+    labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
+    values = [160, 190, 210, 160, 190, 210, 230, 160, 210]
+    return render_template('sample_chart.html', values = values, labels = label, legend = legend)
+
+@app.route('/')
 #http://localhost/plan
 @app.route('/plan')
 def plan():
 	value = Plan.query.all()
-	return render_template( 'plan.html', n = value)
+
+	date_today = datetime.date.today()
+
+	return render_template( 'plan.html', n = value, d = date_today)
 
 
 
@@ -49,9 +63,9 @@ def create_plan():
 			db.session.commit()
 			for x in range(52):
 				plan = Plan(Date=(truestartdate + datetime.timedelta(days=7)*x), Week= x + 1, TSSplan= tssplanweek[x], TSScompl=0)
-				db.session.add(plan)			
+				db.session.add(plan)
 				db.session.commit()
-		
+
 		except:
 			print('Can not do this')
 		return redirect(url_for('plan'))
