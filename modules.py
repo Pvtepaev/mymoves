@@ -9,16 +9,17 @@ ROLE_ADMIN = 1
 
 class Plan(db.Model):
     __tablename__ = 'Plan'
-    ID = db.Column(db.Integer, primary_key = True)
+    id = db.Column(db.Integer, primary_key = True)
     Date = db.Column(db.Date)
     Week = db.Column(db.Integer)
     TSSplan = db.Column(db.Integer)
     TSScompl = db.Column(db.Integer)
+    TrainingPhase = db.Column(db.String(128))
     def __init__(self, *args, **kwargs):
         super(Plan, self).__init__(*args, **kwargs)
 
     def __repr__(self):
-        return '<Plan ID: {}, Date: {}, Week: {}, TSSplan: {}, TSScompl: {}>'.format(self.ID, self.Date, self.Week, self.TSSplan, self.TSScompl)
+        return '<id: {}, Date: {}, Week: {}, TSSplan: {}, TSScompl: {}, TrainingPhase: {}>'.format(self.id, self.Date, self.Week, self.TSSplan, self.TSScompl, self.TrainingPhase)
 
 
 class UserDetails(db.Model):

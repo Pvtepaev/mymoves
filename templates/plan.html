@@ -63,6 +63,7 @@ Training plan 2019
             <tr>
               <th scope="col" align="center"># of Week</th>
               <th scope="col">Starting date</th>
+              <th scope="col">Training Phase</th>
               <th scope="col">Planned TSS</th>
               <th scope="col">Completed TSS</th>
             </tr>
@@ -79,6 +80,26 @@ Training plan 2019
             
               <th scope="row" align="center">{{ m.Week  }}</th>
               <td align="center">{{  m.Date  }}</td>
+             
+             {% if m.TrainingPhase == 'Base 1': %}
+              <td align="center" style="background:SkyBlue">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Base 2': %}
+              <td align="center" style="background:DeepSkyBlue">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Base 3': %}
+              <td align="center" style="background:DodgerBlue">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Build 1': %}
+              <td align="center" style="background:LimeGreen">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Build 2': %}
+              <td align="center" style="background:Green">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Peak': %}
+              <td align="center" style="background:DarkOrange">{{  m.TrainingPhase  }}</td>
+             {% elif m.TrainingPhase == 'Race': %}
+              <td align="center" style="background:OrangeRed">{{  m.TrainingPhase  }}</td>
+             {% else: %}
+              <td align="center" >{{  m.TrainingPhase  }}</td>
+             {% endif %}
+
+
               <td align="center">{{ m.TSSplan  }}</td>
               <td align="center">{{ m.TSScompl  }}</td>
             </tr>
