@@ -5,6 +5,14 @@ from wtforms import Form, StringField, TextField, DateField
 from wtforms.validators import Required, Length
 
 
+#Update values in trainig plan
+class UpdatePlan(Form):
+    weeknumber = StringField('Week to update: ', validators = [Required()])
+    tsscompleted = StringField('Completed TSS:', validators = [Required()])
+
+
+
+#Create plan
 class CreatePlan(Form):
     startdate = DateField('Start Date')
 

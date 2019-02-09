@@ -1,7 +1,7 @@
 from app import app
 from app import db
 from flask import render_template, request, redirect, url_for
-from forms import UserEdit, CreatePlan
+from forms import *
 import datetime
 #from werkzeug.utils import secure_filename
 #import os
@@ -40,14 +40,25 @@ def sample_chart():
 
 @app.route('/')
 #http://localhost/plan
-@app.route('/plan')
+@app.route('/plan', methods=['POST', 'GET'])
 def plan():
+    if request.method == 'POST':
+        weeknumber = request.form['weeknumber']
+        tsscompleted = request.form['tsscompleted']
+        try:
+            db.session.query(Plan).filter_by(Week=weeknumber).update({'TSScompl': tsscompleted})
+            db.session.commit()
+        except:
+            print('can not do this')
+        return redirect(url_for('plan'))
+    form = UpdatePlan()
+
     value = Plan.query.all()
 
     legend = 'Weekly TSS plan'
     date_today = datetime.date.today()
 
-    return render_template( 'plan.html', n = value, d = date_today, legend = legend)
+    return render_template('plan.html', n = value, d = date_today, legend = legend, form=form)
 
 
 
@@ -63,7 +74,7 @@ def create_plan():
 
         try:
 
-            db.session.query(Plan).delete()
+            db.session.query(testPlan).delete()
             db.session.commit()
             for x in range(52):
                 plan = Plan(Date=(truestartdate + datetime.timedelta(days=7)*x), Week= x + 1, TSSplan= tssplanweek[x], TSScompl=0)

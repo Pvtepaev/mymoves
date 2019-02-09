@@ -57,7 +57,9 @@ Training plan 2019
       });
     </script>
   <br>
-  		
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8">
         <table class="table table-striped" style="width: 800px">
           <thead>
             <tr>
@@ -108,6 +110,22 @@ Training plan 2019
           </tbody>
         </table>
         <a href="{{ url_for('create_plan') }}"><button type="button" class="btn btn-primary">Create new training plan</button></a>
+      </div>
+      <div class="col-md-4">
+          <form action="{{ url_for('plan') }}" method='POST'>
+          {% for m in form %}     
+            {{ m.label }}
+              {{ m() }} 
+              <br>
+          {%    endfor %}    
+          <br>
+          <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+
+      </div>
+    </div>
+  </div>
+        
 
 
   		
