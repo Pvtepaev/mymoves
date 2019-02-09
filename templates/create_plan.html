@@ -1,0 +1,42 @@
+{% extends "base.html" %}
+
+{% block title %}
+
+	Create training plan
+
+{% endblock %}
+
+
+
+{% block content %}
+  <h2>Trainig plan for 2019</h2>
+  <br>
+  <a href="{{ url_for('plan') }}"><button type="button" class="btn btn-primary">Cancel and back to training plan</button></a>
+  <br>
+  <form action="{{ url_for('create_plan') }}" method='POST'> 
+  <br>
+  <b>Input planned TSS:</b> 
+        <table class="table table-striped" style="width: 50%">
+          <thead>
+            <tr>
+              <th scope="col" align="center"># </th>
+              <th scope="col" align="center">Value</th>
+            </tr>
+          </thead>
+          <tbody>
+        
+        {% for m in form %}     
+            <tr>
+              <th scope="row" align="center">{{ m.label }}</th>
+              <td align="center">  {{ m() }} </td>
+            </tr>
+        {%    endfor %}    
+        
+          </tbody>
+        </table>
+  <button type="submit" class="btn btn-warning">Reset old and create new training plan</button>
+  </form>
+
+  		
+
+{% endblock %}

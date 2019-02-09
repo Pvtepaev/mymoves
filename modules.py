@@ -2,12 +2,28 @@ from app import db
 from sqlalchemy import Column, Integer, Float, String, Time
 from datetime import datetime
 
+
+
 ROLE_USER = 0
 ROLE_ADMIN = 1
 
+class Plan(db.Model):
+    __tablename__ = 'Plan'
+    id = db.Column(db.Integer, primary_key = True)
+    Date = db.Column(db.Date)
+    Week = db.Column(db.Integer)
+    TSSplan = db.Column(db.Integer)
+    TSScompl = db.Column(db.Integer)
+    TrainingPhase = db.Column(db.String(128))
+    def __init__(self, *args, **kwargs):
+        super(Plan, self).__init__(*args, **kwargs)
+
+    def __repr__(self):
+        return '<id: {}, Date: {}, Week: {}, TSSplan: {}, TSScompl: {}, TrainingPhase: {}>'.format(self.id, self.Date, self.Week, self.TSSplan, self.TSScompl, self.TrainingPhase)
+
+
 class UserDetails(db.Model):
     __tablename__ = 'UserDetails'
-    __bind_key__ = 'mymoves'
     ID = db.Column(db.Integer, primary_key = True)
     Name = db.Column(db.String(128), index = True, unique = True)
     Age = db.Column(db.Integer)
@@ -28,28 +44,8 @@ class UserDetails(db.Model):
     PaceLim4 = db.Column(db.Time)
     PaceLim5 = db.Column(db.Time)
     PaceLim6 = db.Column(db.Time)
-    def __init__(self, ID, Name, Age, Weight, Hrmin, Hrmax, HRThreshold, PaceThreshold, HRLim1, HRLim2, HRLim3, HRLim4, HRLim5, HRLim6, PaceLim1, PaceLim2, PaceLim3, PaceLim4, PaceLim5, PaceLim6):
-        self.ID = ID
-        self.Age = Age
-        self.Weight = Weight
-        self.Hrmin = Hrmin
-        self.Hrmax = Hrmax
-        self.HRThreshold = HRThreshold
-        self.PaceThreshold = PaceThreshold
-        self.HRLim1 = HRLim1
-        self.HRLim2 = HRLim2
-        self.HRLim3 = HRLim3
-        self.HRLim4 = HRLim4
-        self.HRLim5 = HRLim5
-        self.HRLim6 = HRLim6
-        self.PaceLim1 = PaceLim1
-        self.PaceLim2 = PaceLim2
-        self.PaceLim3 = PaceLim3
-        self.PaceLim4 = PaceLim4
-        self.PaceLim5 = PaceLim5
-        self.PaceLim6 = PaceLim6
-    def __repr__(self):
-        return "<UserDetails %r>" % (self.Name)
+    def __init__(self, *args, **kwargs):
+        super(UserDetails, self).__init__(*args, **kwargs)
 
 
 class Moves(db.Model):
