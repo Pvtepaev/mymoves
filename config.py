@@ -6,7 +6,7 @@ class Configuration(object):
     UPLOAD_FOLDER = '/home/loki/trainingpeaks/upload/'
     ALLOWED_EXTENSIONS = set(['tcx'])
     SQLALCHEMY_TRACK_MODIFICATIONS = False
-    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:qazwsx@192.168.14.4:3306/mymoves'
+    SQLALCHEMY_DATABASE_URI = 'mysql+mysqlconnector://root:qazwsx@192.168.14.5:3306/mymoves'
 #    SQLALCHEMY_BINDS = {
 #        'mymoves': 'mysql://root:qazwsx@192.168.14.4:3306/mymoves'
 #    }

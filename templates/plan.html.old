@@ -20,7 +20,7 @@ Training plan 2019
      // define the chart data
      var chartData = {
        labels : [{% for m in n %}
-                  "{{ m['week'] }}",
+                  "{{m.week}}",
                  {% endfor %}],
        datasets : [{
            label: '{{ legend }}',
@@ -28,7 +28,7 @@ Training plan 2019
            lineTension: 0.1,
            backgroundColor: [
                               {% for m in n: %}   
-                                {% if 0 <= (d - m['date']).days < 7: %}
+                                {% if 0 < (d - m.date).days < 7: %}
                                    "rgba(25,0,220,0.4)",
                                 {% else: %}
                                    "rgba(75,192,192,0.4)",
@@ -49,9 +49,8 @@ Training plan 2019
            pointHoverBorderWidth: 2,
            pointRadius: 1,
            pointHitRadius: 10,
-           data : [
-                   {% for m in n %}
-                     {{ m['tss_plan'] }},
+           data : [{% for m in n %}
+                     {{ m.tss_plan }},
                    {% endfor %}],
            spanGaps: false
       }]
@@ -89,41 +88,56 @@ Training plan 2019
           <tbody>
         
            {% for m in n: %}   
-            {% if 0 <= (d - m['date']).days < 7: %}
-              <tr class="table-primary">
+            {% if 0 < (d - m.date).days < 7: %}
+            <tr class="table-primary">
             {% else: %}
-              <tr>
-            {% endif %}
-              <th scope="row" align="center">{{ m['week']  }}</th>
-              <td align="center">{{  m['date']  }}</td>
-             {% if m['training_phase'] == 'Base 1': %}
-              <td align="center" style="background:SkyBlue">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Base 2': %}
-              <td align="center" style="background:DeepSkyBlue">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Base 3': %}
-              <td align="center" style="background:DodgerBlue">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Build 1': %}
-              <td align="center" style="background:LimeGreen">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Build 2': %}
-              <td align="center" style="background:Green">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Peak': %}
-              <td align="center" style="background:DarkOrange">{{  m['training_phase']  }}</td>
-             {% elif m['training_phase'] == 'Race': %}
-              <td align="center" style="background:OrangeRed">{{  m['training_phase']  }}</td>
+            <tr>
+           {% endif %}
+
+            
+              <th scope="row" align="center">{{ m.week  }}</th>
+              <td align="center">{{  m.date  }}</td>
+             
+             {% if m.training_phase == 'Base 1': %}
+              <td align="center" style="background:SkyBlue">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Base 2': %}
+              <td align="center" style="background:DeepSkyBlue">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Base 3': %}
+              <td align="center" style="background:DodgerBlue">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Build 1': %}
+              <td align="center" style="background:LimeGreen">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Build 2': %}
+              <td align="center" style="background:Green">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Peak': %}
+              <td align="center" style="background:DarkOrange">{{  m.training_phase  }}</td>
+             {% elif m.training_phase == 'Race': %}
+              <td align="center" style="background:OrangeRed">{{  m.training_phase  }}</td>
              {% else: %}
-              <td align="center" >{{  m['training_phase']  }}</td>
+              <td align="center" >{{  m.training_phase  }}</td>
              {% endif %}
-              <td align="center">{{ m['tss_plan']  }}</td>
-              <td align="center">{{ m['tss_compl']  }}</td>
-              <td align="center">{{ m['ctl_plan']  }}</td>
-              <td align="center">{{ m['ctl_plan'] - n[m['week'] -2]['ctl_plan'] }}</td>
-              <td align="center">{{ m['ctl_plan'] - m['atl_plan'] }}</td>
-              <td align="center">{{ m['ctl_compl']  }}</td>
-              <td align="center">{{ m['ctl_compl'] - n[m['week'] -2]['ctl_compl'] }}</td>
-              <td align="center"> {{ m['atl_compl'] }}</td>
-              <td align="center">{{ m['ctl_compl'] - m['atl_compl'] }}</td>
+
+
+              <td align="center">{{ m.tss_plan  }}</td>
+              <td align="center">{{ m.tss_compl  }}</td>
+              <td align="center">
+              {% if m.week > 6: %}
+                {{ ((n[m.week - 1].tss_plan + n[m.week - 2].tss_plan + n[m.week - 3].tss_plan + n[m.week - 4].tss_plan + n[m.week - 5].tss_plan + n[m.week - 6].tss_plan)/42)|round }}
+              {% else: %}
+              0
+              {% endif %}</td>
+              <td align="center"> planned ramp rate</td>
+              <td align="center"> planned tsb</td>
+              <td align="center">
+              {% if m.week > 6: %}
+                {{ ((n[m.week - 1].tss_compl + n[m.week - 2].tss_compl + n[m.week - 3].tss_compl + n[m.week - 4].tss_compl + n[m.week - 5].tss_compl + n[m.week - 6].tss_compl)/42)|round }}
+              {% else: %}
+              0
+              {% endif %}</td>
+              <td align="center"> ramp rate</td>
+              <td align="center"> {{ (m.tss_compl/7)|round }}</td>
+              <td align="center"> tsb</td>
             </tr>
-           {% endfor %}    
+        {% endfor %}    
        
           </tbody>
         </table>
