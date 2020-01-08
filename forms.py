@@ -1,7 +1,7 @@
 #from flask_wtf import FlaskForm
 #from flask_wtf.file import FileField, FileRequired
 #from flask.ext.wtf import Form
-from wtforms import Form, StringField, TextField, DateField
+from wtforms import Form, StringField, TextField, DateField, SelectField
 from wtforms.validators import Required, Length
 
 
@@ -68,7 +68,58 @@ class CreatePlan(Form):
     tssplanweek49 = StringField('Planned TSS for Week 50')
     tssplanweek50 = StringField('Planned TSS for Week 51')
     tssplanweek51 = StringField('Planned TSS for Week 52')
-    
+    weekphase0 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase1 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase2 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase3 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase4 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase5 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase6 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase7 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase8 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase9 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase10 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase11 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase12 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase13 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase14 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase15 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase16 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase17 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase18 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase19 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase20 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase21 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase22 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase23 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase24 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase25 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase26 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase27 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase28 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase29 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase30 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase31 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase32 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase33 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase34 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase35 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase36 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase37 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase38 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase39 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase40 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase41 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase42 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase43 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase44 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase45 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase46 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase47 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase48 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase49 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase50 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
+    weekphase51 = SelectField(u'Phase', choices=[('Preparation', 'Preparation'), ('Base 1', 'Base 1'), ('Base 2', 'Base 2'), ('Base 3', 'Base 3'), ('Build 1', 'Build 1'), ('Build 2', 'Build 2'), ('Peak', 'Peak'), ('Race', 'Race')])
 #class Uploadform(Form):
 #    filename = FileField(validators=[FileRequired()])
 

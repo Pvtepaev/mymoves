@@ -33,7 +33,7 @@ def sample_chart():
     legend = 'Planned Weekly TSS'
 #    labels = ['1', '2', '3', '4', '5', '6', '7', '8', '9']
 #    values = [160, 190, 210, 160, 190, 210, 230, 160, 210]
-    
+
     values = Plan.query.all()
 
     return render_template('sample_chart.html', values = values, legend = legend)
@@ -92,15 +92,16 @@ def create_plan():
         startdate = request.form['startdate']
         truestartdate = datetime.datetime.strptime(startdate, '%Y-%m-%d').date()
         tssplanweek = []
+        weekphase = []
         for x in range(52):
             tssplanweek.append(request.form['tssplanweek' + str(x)])
-
+            weekphase.append(request.form['weekphase' + str(x)])
         try:
 
-            db.session.query(testPlan).delete()
+            db.session.query(Plan).delete()
             db.session.commit()
             for x in range(52):
-                plan = Plan(date=(truestartdate + datetime.timedelta(days=7)*x), week= x + 1, tss_plan= tssplanweek[x], tss_compl=0)
+                plan = Plan(date=(truestartdate + datetime.timedelta(days=7)*x), week= x + 1, tss_plan= tssplanweek[x], tss_compl=0, training_phase=weekphase[x])
                 db.session.add(plan)
                 db.session.commit()
 
