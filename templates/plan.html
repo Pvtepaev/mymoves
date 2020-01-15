@@ -54,6 +54,38 @@ Training plan 2019
                      {{ m['tss_plan'] }},
                    {% endfor %}],
            spanGaps: false
+       },{
+           label: 'Weekly TSS completed',
+           fill: true,
+           lineTension: 0.1,
+           backgroundColor: [
+                              {% for m in n: %}   
+                                {% if 0 <= (d - m['date']).days < 7: %}
+                                   "rgba(0,128,0,0.4)",
+                                {% else: %}
+                                   "rgba(104,250,104,0.4)",
+                                {% endif %}
+                              {% endfor %}
+                            ],
+           borderColor: "rgba(104,250,104,1)",
+           borderCapStyle: 'butt',
+           borderDash: [],
+           borderDashOffset: 0.0,
+           borderJoinStyle: 'miter',
+           pointBorderColor: "rgba(104,250,104,1)",
+           pointBackgroundColor: "#fff",
+           pointBorderWidth: 1,
+           pointHoverRadius: 5,
+           pointHoverBackgroundColor: "rgba(104,250,104,1)",
+           pointHoverBorderColor: "rgba(104,250,104,1)",
+           pointHoverBorderWidth: 2,
+           pointRadius: 1,
+           pointHitRadius: 10,
+           data : [
+                   {% for m in n %}
+                     {{ m['tss_compl'] }},
+                   {% endfor %}],
+           spanGaps: false
       }]
      }
 
