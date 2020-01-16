@@ -100,7 +100,32 @@ Training plan 2019
                      {{ m['tss_compl'] }},
                    {% endfor %}],
            spanGaps: false
-      }]
+       },{
+           type: 'line',
+           label: 'Planned CTL',
+           fill: false,
+           lineTension: 0.1,
+           backgroundColor: "rgba(0,0,128,1)",
+           borderColor: "rgba(0,0,128,1)",
+           borderCapStyle: 'butt',
+           borderDash: [],
+           borderDashOffset: 0.0,
+           borderJoinStyle: 'miter',
+           pointBorderColor: "rgba(0,0,128,1)",
+           pointBackgroundColor: "#fff",
+           pointBorderWidth: 1,
+           pointHoverRadius: 5,
+           pointHoverBackgroundColor: "rgba(0,0,128,1)",
+           pointHoverBorderColor: "rgba(0,0,128,1)",
+           pointHoverBorderWidth: 2,
+           pointRadius: 1,
+           pointHitRadius: 5,
+           data : [
+                   {% for m in n %}
+                     {{ m['ctl_plan'] }},
+                   {% endfor %}],
+           spanGaps: false
+       }]
      }
 
      // get chart canvas
