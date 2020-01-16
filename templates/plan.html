@@ -28,8 +28,22 @@ Training plan 2019
            lineTension: 0.1,
            backgroundColor: [
                               {% for m in n: %}   
-                                {% if 0 <= (d - m['date']).days < 7: %}
-                                   "rgba(25,0,220,0.4)",
+                                {% if  m['training_phase'] == 'Preparation' %}
+                                   "rgba(176,196,222,0.7)",
+                                {% elif m['training_phase'] == 'Base 1' %}
+                                   "rgba(135,206,235,0.7)",         
+                                {% elif m['training_phase'] == 'Base 2' %}
+                                   "rgba(0,191,255,0.7)", 
+                                {% elif m['training_phase'] == 'Base 3' %}
+                                   "rgba(30,144,255,0.7)", 
+                                {% elif m['training_phase'] == 'Build 1' %}
+                                   "rgba(50,205,50,0.7)", 
+                                {% elif m['training_phase'] == 'Build 2' %}
+                                   "rgba(0,128,0,0.7)", 
+                                {% elif m['training_phase'] == 'Peak' %}
+                                   "rgba(255,140,0,0.7)", 
+                                {% elif m['training_phase'] == 'Race' %}
+                                   "rgba(255,69,0,0.7)", 
                                 {% else: %}
                                    "rgba(75,192,192,0.4)",
                                 {% endif %}
@@ -61,7 +75,7 @@ Training plan 2019
            backgroundColor: [
                               {% for m in n: %}   
                                 {% if 0 <= (d - m['date']).days < 7: %}
-                                   "rgba(0,128,0,0.4)",
+                                   "rgba(148,0,211,0.4)",
                                 {% else: %}
                                    "rgba(104,250,104,0.4)",
                                 {% endif %}
@@ -100,7 +114,17 @@ Training plan 2019
   <br>
   <div class="container">
     <div class="row">
-      <div class="col-md-8">
+          <form action="{{ url_for('plan') }}" method='POST'>
+          {% for m in form %}     
+            {{ m.label }}
+              {{ m() }} 
+              <br>
+          {%    endfor %}    
+          <br>
+          <button type="submit" class="btn btn-warning">Update</button>
+          </form>
+    </div>
+    <div class="row">
         <table class="table table-striped">
           <thead>
             <tr>
@@ -142,6 +166,8 @@ Training plan 2019
               <td align="center" style="background:DarkOrange">{{  m['training_phase']  }}</td>
              {% elif m['training_phase'] == 'Race': %}
               <td align="center" style="background:OrangeRed">{{  m['training_phase']  }}</td>
+             {% elif m['training_phase'] == 'Preparation': %}
+              <td align="center" style="background:LightSteelBlue">{{  m['training_phase']  }}</td>
              {% else: %}
               <td align="center" >{{  m['training_phase']  }}</td>
              {% endif %}
@@ -160,19 +186,6 @@ Training plan 2019
           </tbody>
         </table>
         <a href="{{ url_for('create_plan') }}"><button type="button" class="btn btn-primary">Create new training plan</button></a>
-      </div>
-      <div class="col-md-4">
-          <form action="{{ url_for('plan') }}" method='POST'>
-          {% for m in form %}     
-            {{ m.label }}
-              {{ m() }} 
-              <br>
-          {%    endfor %}    
-          <br>
-          <button type="submit" class="btn btn-warning">Update</button>
-          </form>
-
-      </div>
     </div>
   </div>
         
