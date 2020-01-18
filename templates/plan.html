@@ -25,6 +25,7 @@ Training plan 2019
        datasets : [{
            label: '{{ legend }}',
            fill: true,
+           yAxisID: 'y-axis-1',
            lineTension: 0.1,
            backgroundColor: [
                               {% for m in n: %}   
@@ -71,6 +72,7 @@ Training plan 2019
        },{
            label: 'Weekly TSS completed',
            fill: true,
+           yAxisID: 'y-axis-1',
            lineTension: 0.1,
            backgroundColor: [
                               {% for m in n: %}   
@@ -103,26 +105,105 @@ Training plan 2019
        },{
            type: 'line',
            label: 'Planned CTL',
-           fill: false,
+           fill: true,
+           yAxisID: 'y-axis-2',
            lineTension: 0.1,
-           backgroundColor: "rgba(0,0,128,1)",
-           borderColor: "rgba(0,0,128,1)",
+           backgroundColor: "rgba(153,204,255,0.4)",
+           borderColor: "rgba(153,204,255,0.4)",
            borderCapStyle: 'butt',
            borderDash: [],
            borderDashOffset: 0.0,
            borderJoinStyle: 'miter',
-           pointBorderColor: "rgba(0,0,128,1)",
+           pointBorderColor: "rgba(153,204,255,0.4)",
            pointBackgroundColor: "#fff",
            pointBorderWidth: 1,
            pointHoverRadius: 5,
-           pointHoverBackgroundColor: "rgba(0,0,128,1)",
-           pointHoverBorderColor: "rgba(0,0,128,1)",
+           pointHoverBackgroundColor: "rgba(153,204,255,0.4)",
+           pointHoverBorderColor: "rgba(153,204,255,0.4)",
            pointHoverBorderWidth: 2,
            pointRadius: 1,
            pointHitRadius: 5,
            data : [
                    {% for m in n %}
                      {{ m['ctl_plan'] }},
+                   {% endfor %}],
+           spanGaps: false
+       },{
+           type: 'line',
+           label: 'Fact CTL',
+           fill: false,
+           yAxisID: 'y-axis-2',
+           lineTension: 0.1,
+           backgroundColor: "rgba(102,102,255,1)",
+           borderColor: "rgba(102,102,255,1)",
+           borderCapStyle: 'butt',
+           borderDash: [],
+           borderDashOffset: 0.0,
+           borderJoinStyle: 'miter',
+           pointBorderColor: "rgba(102,102,255,1)",
+           pointBackgroundColor: "#fff",
+           pointBorderWidth: 1,
+           pointHoverRadius: 5,
+           pointHoverBackgroundColor: "rgba(102,102,255,1)",
+           pointHoverBorderColor: "rgba(102,102,255,1)",
+           pointHoverBorderWidth: 2,
+           pointRadius: 1,
+           pointHitRadius: 5,
+           data : [
+                   {% for m in n %}
+                     {{ m['ctl_compl'] }},
+                   {% endfor %}],
+           spanGaps: false
+       },{
+           type: 'line',
+           label: 'Fact ATL',
+           fill: false,
+           yAxisID: 'y-axis-2',
+           lineTension: 0.1,
+           backgroundColor: "rgba(204,0,0,1)",
+           borderColor: "rgba(204,0,0,1)",
+           borderCapStyle: 'butt',
+           borderDash: [],
+           borderDashOffset: 0.0,
+           borderJoinStyle: 'miter',
+           pointBorderColor: "rgba(204,0,0,1)",
+           pointBackgroundColor: "#fff",
+           pointBorderWidth: 1,
+           pointHoverRadius: 5,
+           pointHoverBackgroundColor: "rgba(204,0,0,1)",
+           pointHoverBorderColor: "rgba(204,0,0,1)",
+           pointHoverBorderWidth: 2,
+           pointRadius: 1,
+           pointHitRadius: 5,
+           data : [
+                   {% for m in n %}
+                     {{ m['atl_compl'] }},
+                   {% endfor %}],
+           spanGaps: false
+       },{
+           type: 'line',
+           label: 'TSB (Form)',
+           fill: false,
+           yAxisID: 'y-axis-2',
+           lineTension: 0.1,
+           backgroundColor: "rgba(255,128,0,1)",
+           borderColor: "rgba(255,128,0,1)",
+           borderCapStyle: 'butt',
+           borderDash: [],
+           borderDashOffset: 0.0,
+           borderJoinStyle: 'miter',
+           pointBorderColor: "rgba(255,128,0,1)",
+           pointBackgroundColor: "#fff",
+           pointBorderWidth: 1,
+           pointHoverRadius: 5,
+           pointHoverBackgroundColor: "rgba(255,128,0,1)",
+           pointHoverBorderColor: "rgba(255,128,0,1)",
+           pointHoverBorderWidth: 2,
+           pointRadius: 1,
+           pointHitRadius: 5,
+           data : [
+                   {% for m in n %}
+                     {{ m['ctl_compl'] - m['atl_compl'] }},
                    {% endfor %}],
            spanGaps: false
        }]
@@ -134,6 +215,19 @@ Training plan 2019
      var myChart = new Chart(ctx, {
        type: 'bar',
        data: chartData,
+       options: {
+         scales: {
+           yAxes:[{
+             id: 'y-axis-1',
+             type: 'linear',
+             position: 'left'
+           },{
+             id: 'y-axis-2',
+             type: 'linear',
+             position: 'right'
+           }]
+         }
+       }
       });
     </script>
   <br>
