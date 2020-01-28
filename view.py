@@ -55,7 +55,11 @@ def plan():
 
     values = Plan.query.all()
     output = []
+    total_plantss = 0
+    total_compltss = 0
     for v in values:
+        total_plantss += v.tss_plan
+        total_compltss += v.tss_compl
         atl_plan = round(v.tss_plan / 7)
         atl_compl = round(v.tss_compl / 7)
         tss_plan_sum = 0
@@ -81,7 +85,7 @@ def plan():
     legend = 'Weekly TSS plan'
     date_today = datetime.date.today()
 
-    return render_template('plan.html', n = output, d = date_today, legend = legend, form=form)
+    return render_template('plan.html', n = output, d = date_today, legend = legend, form=form, tptss=total_plantss, tctss=total_compltss)
 
 
 
