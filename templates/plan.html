@@ -20,7 +20,7 @@ Training plan 2019
      // define the chart data
      var chartData = {
        labels : [{% for m in n %}
-                  "{{ m['week'] }}",
+                  "{{ m['date'] }}",
                  {% endfor %}],
        datasets : [{
            label: '{{ legend }}',
