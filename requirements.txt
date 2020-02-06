@@ -18,6 +18,6 @@ python-editor==1.0.3
 pytz==2018.7
 six==1.12.0
 SQLAlchemy==1.2.15
-Werkzeug==0.14.1
+Werkzeug==0.15.3
 WTForms==2.2.1
 zope.interface==4.6.0
